@@ -1,0 +1,25 @@
+.container {
+
+    h2 {
+        text-align: center;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .inmateInfo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+
+        .label {
+            font-weight: 600;
+            justify-self: end;
+        }
+
+        .value {
+            justify-self: start;
+        }
+    }
+}

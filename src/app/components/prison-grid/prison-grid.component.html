@@ -1,0 +1,8 @@
+<mat-card>
+    <mat-card-title>Celler</mat-card-title>
+    <mat-card-content>
+        <div class="cells-grid">
+            <app-grid-cell *ngFor="let cell of cells" [cell]="cell"></app-grid-cell>
+        </div>
+    </mat-card-content>
+</mat-card>

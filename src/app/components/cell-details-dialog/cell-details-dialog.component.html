@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Cellenummer</h2>
+    <h1>{{ data.cellNo }}</h1>
+
+    <div *ngIf="isOccupied(); then inmateBlock else emptyBlock">
+    </div>
+    <ng-template #inmateBlock>
+        <section>
+            <div class="inmateInfo">
+                <span class="label">Navn</span>
+                <span class="value">{{ data.inmate?.name }}</span>
+                <span class="label">Alder</span>
+                <span class="value">{{ data.inmate?.age }}</span>
+                <span class="label">Kjønn</span>
+                <span class="value">{{ getGenderDisplayValue() }}</span>
+                <span class="label">Fengslingsdato</span>
+                <span class="value">{{ getDateDisplayValue(data.inmate!.startDate) }}</span>
+                <span class="label">Løslatelsesdato</span>
+                <span class="value">{{ getDateDisplayValue(data.inmate!.endDate) }}</span>
+            </div>
+        </section>
+    </ng-template>
+    <ng-template #emptyBlock>
+        <section>
+            Tom
+        </section>
+    </ng-template>
+    <div mat-dialog-actions>
+        <button mat-raised-button (click)="onClose()">Lukk</button>
+        <button mat-raised-button color="primary" *ngIf="isOccupied()" (click)="onRelease()">Løslat innsatt</button>
+        <button mat-raised-button color="primary" *ngIf="!isOccupied()" (click)="onAdd()">Legg til innsatt</button>
+    </div>
+</div>

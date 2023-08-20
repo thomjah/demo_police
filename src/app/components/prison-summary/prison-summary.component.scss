@@ -1,0 +1,15 @@
+.statBlock {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+
+    .label {
+        font-weight: 600;
+        justify-self: end;
+    }
+
+    .value {
+        justify-self: start;
+    }
+}

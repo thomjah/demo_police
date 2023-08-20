@@ -1,1 +1,16 @@
-<p>prison-summary works!</p>
+<mat-card>
+    <mat-card-title>Statistikk</mat-card-title>
+    <mat-card-content>
+        <section class="statBlock">
+            <span class="label">Antall innsatte</span>
+            <span class="value">{{ getNumInmates() }}</span>
+            <span class="label">Antall menn</span>
+            <span class="value">{{ getNumMale() }}</span>
+            <span class="label">Antall kvinner</span>
+            <span class="value">{{ getNumFemale() }}</span>
+            <span class="label">Antall slipper ut innen ett år</span>
+            <span class="value">{{ getNumReleasesWithinYear() }}</span>
+        </section>
+
+    </mat-card-content>
+</mat-card>

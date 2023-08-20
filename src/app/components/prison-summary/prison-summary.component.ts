@@ -30,23 +30,24 @@ export class PrisonSummaryComponent implements OnInit, OnDestroy {
     }
 
     getNumMale(): number {
-        return this.occupiedCells.filter(
-            (cell) => cell.inmate!.gender === "M"
-        ).length;
+        return this.occupiedCells.filter((cell) => cell.inmate!.gender === "M")
+            .length;
     }
 
     getNumFemale(): number {
-        return this.occupiedCells.filter(
-            (cell) => cell.inmate!.gender === "F"
-        ).length;
+        return this.occupiedCells.filter((cell) => cell.inmate!.gender === "F")
+            .length;
     }
 
     getNumReleasesWithinYear(): number {
         const threshold = new Date();
         threshold.setFullYear(threshold.getFullYear() + 1);
+        return this.getNumReleasesWithinDate(threshold);
+    }
+
+    getNumReleasesWithinDate(threshold: Date): number {
         return this.occupiedCells.filter(
             (cell) => cell.inmate!.endDate < threshold
         ).length;
     }
-
 }

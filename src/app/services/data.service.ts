@@ -29,7 +29,7 @@ export class DataService {
         return this.cellsStream.pipe(
             obsMap((cells) =>
                 cells
-                    .filter((cell) => cell.inmate !== null)
+                    .filter((cell) => cell.inmate === null)
                     .map((cell) => cell.cellNo)
             )
         );

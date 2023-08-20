@@ -1,8 +1,9 @@
 import { Component, Inject } from "@angular/core";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material/dialog";
 
 import { Cell } from "src/app/types";
 import { DataService } from "src/app/services/data.service";
+import { NewInmateDialogComponent } from "../new-inmate-dialog/new-inmate-dialog.component";
 
 const GENDER_DISPLAY_MAP = {
     M: "Mann",
@@ -17,6 +18,7 @@ const GENDER_DISPLAY_MAP = {
 export class CellDetailsDialogComponent {
     constructor(
         public dialogRef: MatDialogRef<CellDetailsDialogComponent>,
+        private dialog: MatDialog,
         private dataService: DataService,
         @Inject(MAT_DIALOG_DATA) public data: Cell
     ) {}
@@ -42,5 +44,10 @@ export class CellDetailsDialogComponent {
         this.dialogRef.close();
     }
 
-    onAdd() {}
+    onAdd() {
+        this.dialogRef.close();
+        this.dialog.open(NewInmateDialogComponent, {
+            data: { cellNo: this.data.cellNo },
+        });
+    }
 }

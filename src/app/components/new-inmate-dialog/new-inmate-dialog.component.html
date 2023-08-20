@@ -1,6 +1,10 @@
 <div class="container">
     <h1>Ny innsatt</h1>
     <section>
-        <app-new-inmate-form [cellNo]="data.cellNo" [availableCells]="availableCells"></app-new-inmate-form>
+        <app-new-inmate-form
+            [cellNo]="data.cellNo"
+            [availableCells]="availableCells"
+            (inmateCreated)="onInmateCreated($event)">
+        </app-new-inmate-form>
     </section>
 </div>
